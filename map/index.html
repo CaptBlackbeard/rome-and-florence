@@ -137,10 +137,11 @@ const PLACES = [{"n": "AC Hotel by Marriott Clodio Roma", "c": "hotel", "city": 
   }
   function showPanel(p){
     hidePanel();
-    var near={5:0,10:0,15:0};
+    var near={5:0,10:0,15:0}, closest=null, closestMin=1e9;
     PLACES.forEach(function(q){
       if(q===p || q.c==="hotel" || q.city!==p.city) return;
       var mins=metres(p,q)/WALK;
+      if(mins<closestMin){ closestMin=mins; closest=q; }
       if(mins<=5) near[5]++; if(mins<=10) near[10]++; if(mins<=15) near[15]++;
     });
     var d=L.DomUtil.create("div","panel"); d.id="walkpanel";
@@ -149,6 +150,7 @@ const PLACES = [{"n": "AC Hotel by Marriott Clodio Roma", "c": "hotel", "city": 
       '&bull; 5 min &mdash; '+near[5]+' places<br>'+
       '&bull; 10 min &mdash; '+near[10]+' places<br>'+
       '&bull; 15 min &mdash; '+near[15]+' places<br>'+
+      (closest ? '<span class="pop-a">nearest: '+closest.n+', about '+Math.max(1,Math.round(closestMin))+' min</span><br>' : '')+
       '<span class="hint">Circles are straight-line; streets add a little.</span>';
     document.getElementById("map").appendChild(d);
     L.DomEvent.disableClickPropagation(d);
