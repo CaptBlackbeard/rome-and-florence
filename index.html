@@ -119,6 +119,13 @@
   .hotel .rate span{font-family:var(--body);font-size:.9rem;color:var(--ink-soft)}
   .hotel p{margin:0;font-size:.99rem}
   .hotel .score{display:inline-flex;align-items:baseline;gap:.3rem;font-size:.9rem;color:var(--olive)}
+  .walkpill{display:inline-block;margin-left:.5rem;font-size:.85rem;padding:.08rem .55rem;
+    border-radius:11px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .walkpill.many{background:#6B7A4F;background:var(--olive,#6B7A4F);color:#FCF4E6}
+  .walkpill.few{background:#C9A24B;background:var(--gold,#C9A24B);color:#3A2411}
+  .walkpill.none{background:transparent;color:#C1502E;color:var(--terracotta,#C1502E);
+    border:1px solid currentColor}
+  .hotel .score{display:flex;flex-wrap:wrap;align-items:center;gap:.15rem 0}
   .pick{border-color:var(--gold);box-shadow:var(--shadow)}
   .pick-flag{background:var(--gold);color:#3A2411;font-family:var(--display);font-size:.92rem;
              letter-spacing:.1em;padding:.3rem .8rem}
@@ -387,7 +394,7 @@
       <h4><a href="https://www.marriott.com/en-us/hotels/romca-ac-hotel-clodio-roma/overview/" target="_blank" rel="noopener">AC Hotel by Marriott Clodio Roma</a></h4>
       <p class="meta">Prati / Clodio, a tram ride from the Vatican</p>
       <p class="rate">$245<span> a night &middot; $1,148 total</span></p>
-      <p class="score">9.2 out of 10 &mdash; 73 reviews</p>
+      <p class="score">9.2 out of 10 &mdash; 73 reviews<span class="walkpill none">0 within a 10-min walk</span></p>
       <p>Modern rooms, Marriott points, a quiet residential street. But nothing on this page is within a 15-minute walk of it — the nearest, Del Frate, is about 16 minutes, and the Vatican Museums about 21. It is a tram-and-metro hotel.</p>
       <p class="meta" style="font-style:italic">AC Hotel Clodio Roma</p>
     </div>
@@ -398,7 +405,7 @@
       <h4><a href="https://www.hotelducadalba.com" target="_blank" rel="noopener">Hotel Duca d'Alba</a></h4>
       <p class="meta">Monti &mdash; ten minutes' walk to the Colosseum</p>
       <p class="rate">$276<span> a night &middot; $1,555 total</span></p>
-      <p class="score">8.8 out of 10 &mdash; 1,002 reviews</p>
+      <p class="score">8.8 out of 10 &mdash; 1,002 reviews<span class="walkpill many">6 within a 10-min walk</span></p>
       <p>The location is the whole argument. Six of the places on this page are inside a 10-minute walk, and the Colosseum is one of them — 447 metres, about six minutes.</p>
       <p class="meta" style="font-style:italic">Hotel Duca d'Alba, Via Leonina</p>
     </div>
@@ -409,7 +416,7 @@
       <h4><a href="https://www.hoteltrastevere.it" target="_blank" rel="noopener">Hotel Trastevere</a></h4>
       <p class="meta">Trastevere, off Piazza San Cosimato</p>
       <p class="rate">$240<span> a night &middot; $1,112 total</span></p>
-      <p class="score">8.6 out of 10 &mdash; 342 reviews</p>
+      <p class="score">8.6 out of 10 &mdash; 342 reviews<span class="walkpill many">4 within a 10-min walk</span></p>
       <p>Cheapest of the three and right in the middle of the evening we are already planning. Four of our places within a 10-minute walk, and Piazza Santa Maria is 200 metres away.</p>
       <p class="meta" style="font-style:italic">A superior double at Hotel Trastevere</p>
     </div>
@@ -423,7 +430,7 @@
       <h4><a href="https://www.marriott.com/en-us/hotels/flrfi-ac-hotel-firenze/overview/" target="_blank" rel="noopener">AC Hotel Firenze by Marriott</a></h4>
       <p class="meta">Between the station and the Cascine park</p>
       <p class="rate">$300<span> a night &middot; $1,037 total</span></p>
-      <p class="score">8.6 out of 10 &mdash; 797 reviews</p>
+      <p class="score">8.6 out of 10 &mdash; 797 reviews<span class="walkpill none">0 within a 10-min walk</span></p>
       <p>Same reliability as the Rome AC and the cheapest Florence total, but it sits out past the station: nothing on this page within a 10-minute walk, and Santa Maria Novella itself is about 11.</p>
       <p class="meta" style="font-style:italic">AC Hotel Firenze</p>
     </div>
@@ -435,7 +442,7 @@
       <h4><a href="https://www.hotelplazalucchesi.it" target="_blank" rel="noopener">Plaza Hotel Lucchesi</a></h4>
       <p class="meta">On the Arno, five minutes below Santa Croce</p>
       <p class="rate">$605<span> a night &middot; $2,046 total</span></p>
-      <p class="score">9.4 out of 10 &mdash; 1,003 reviews</p>
+      <p class="score">9.4 out of 10 &mdash; 1,003 reviews<span class="walkpill few">2 within a 10-min walk</span></p>
       <p>The only one of the six with real family suites, river-view rooms and a rooftop pool. Highest rated on this page. Two places within a 10-minute walk and ten within 15 — central enough, on the quiet side of the river.</p>
       <p class="meta" style="font-style:italic">The roof at the Plaza Lucchesi</p>
     </div>
@@ -446,7 +453,7 @@
       <h4><a href="https://www.hotelalessandra.com" target="_blank" rel="noopener">Hotel Alessandra</a></h4>
       <p class="meta">Borgo Santi Apostoli, a block from the Ponte Vecchio</p>
       <p class="rate">$273<span> a night &middot; $932 total</span></p>
-      <p class="score">9.2 out of 10 &mdash; 990 reviews</p>
+      <p class="score">9.2 out of 10 &mdash; 990 reviews<span class="walkpill many">11 within a 10-min walk</span></p>
       <p>A 16th-century palazzo on a quiet lane, 147 metres from the Ponte Vecchio. Eleven of the places on this page are within a 10-minute walk — the best-located of all six, at the second-lowest price.</p>
       <p class="meta" style="font-style:italic">A room at the Alessandra</p>
     </div>
