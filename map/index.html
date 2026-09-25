@@ -109,9 +109,9 @@ const PLACES = [{"n": "AC Hotel by Marriott Clodio Roma", "c": "hotel", "city": 
   var LABEL={hotel:"Hotel",sight:"Sight",eat:"Restaurant",wine:"Wine bar",gelato:"Gelato"};
   var WALK=80; // metres per minute, an unhurried city pace
   var map=L.map("map",{zoomControl:true,scrollWheelZoom:true}).setView([41.8955,12.4823],14);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{
-    maxZoom:19, subdomains:"abcd",
-    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{
+    maxZoom:19,
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
   function metres(a,b){
