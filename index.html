@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A seven-day Rome and Florence itinerary for April 2027.">
+<meta name="theme-color" content="#FAF3E7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1E1512" media="(prefers-color-scheme: dark)">
+<title>Rome &amp; Florence in April</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+  :root{
+    --terracotta:#C1502E; --olive:#6B7A4F; --cream:#FAF3E7; --gold:#C9A24B; --wine:#5A2A27;
+    --ink:#372C24; --ink-soft:#6E5F52; --link:#5A2A27; --headline:#5A2A27; --page:#FAF3E7; --surface:#FFFDF8;
+    --rule:#E3D5BC; --shadow:0 10px 30px rgba(90,42,39,.10);
+    --display:"Cormorant Garamond",Cormorant,Georgia,"Times New Roman",serif;
+    --body:"EB Garamond",Garamond,Georgia,"Times New Roman",serif;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --cream:#F3E5D2; --page:#1E1512; --surface:#291D18; --ink:#F1E3D1; --ink-soft:#C3AE98;
+      --rule:#463229; --terracotta:#D9703F; --gold:#D8B569; --link:#EBBE86; --headline:#F3D9B8; --shadow:0 10px 30px rgba(0,0,0,.45);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{ --terracotta:#D9703F; --gold:#D8B569; --link:#EBBE86; --headline:#F3D9B8;
+    --cream:#F3E5D2; --page:#1E1512; --surface:#291D18; --ink:#F1E3D1; --ink-soft:#C3AE98;
+    --rule:#463229; --shadow:0 10px 30px rgba(0,0,0,.45);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html{min-height:100%;background:#FAF3E7;background:var(--page,#FAF3E7)}
+  body{margin:0;min-height:100%;
+       background:#FAF3E7;background:var(--page,#FAF3E7);
+       color:#372C24;color:var(--ink,#372C24);
+       font-family:Georgia,"Times New Roman",serif;font-family:var(--body);
+       font-size:19px;line-height:1.66;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--headline);line-height:1.12;text-wrap:balance;margin:0}
+  a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--gold)}
+  a:hover{color:var(--terracotta);border-bottom-color:var(--terracotta)}
+  a:focus-visible{outline:2px solid var(--terracotta);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+  .prose{max-width:34em}
+  @media (prefers-color-scheme:dark){
+    html:not([data-theme="light"]){background:#1E1512}
+    html:not([data-theme="light"]) body{background:#1E1512;color:#F1E3D1}
+  }
+  html[data-theme="dark"]{background:#1E1512}
+  html[data-theme="dark"] body{background:#1E1512;color:#F1E3D1}
+</style>
+<style>
+  /* ---------- hero ---------- */
+  .hero{position:relative;isolation:isolate;overflow:hidden;background:var(--wine)}
+  .hero img{width:100%;height:clamp(340px,62vh,600px);object-fit:cover;object-position:center 58%;
+            filter:saturate(1.02)}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(38,17,14,.30) 0%,rgba(38,17,14,.16) 38%,rgba(38,17,14,.78) 100%)}
+  .hero-copy{position:absolute;inset-inline:0;bottom:0;z-index:2;padding:0 20px 38px;text-align:center;color:#FCF4E6}
+  .hero-copy h1{color:#FCF4E6;font-size:clamp(3rem,10vw,6.1rem);font-weight:300;letter-spacing:.005em;
+                text-shadow:0 2px 18px rgba(30,12,10,.55)}
+  .hero-copy h1 em{font-style:normal;font-weight:600}
+  .hero-dates{font-family:var(--display);font-size:clamp(1.05rem,3.2vw,1.5rem);letter-spacing:.20em;
+              margin-top:.7rem;color:#F6E2C2;text-shadow:0 2px 12px rgba(30,12,10,.6)}
+  .hero-rule{width:74px;height:2px;background:var(--gold);margin:1.1rem auto 0;opacity:.9}
+
+  /* ---------- rhythm ---------- */
+  section{padding-block:clamp(3rem,7vw,5.4rem)}
+  .lede{font-size:1.22em;line-height:1.62}
+  .lede p+p{margin-top:1.05em}
+  .eyebrow{font-family:var(--display);font-style:italic;color:var(--terracotta);font-size:1.18rem;margin:0 0 .35rem}
+  h2{font-size:clamp(2.1rem,5.6vw,3.1rem);font-weight:400}
+  h2 .sub{display:block;font-family:var(--body);font-style:italic;font-size:1.02rem;color:var(--ink-soft);
+          margin-top:.55rem;letter-spacing:0;font-weight:400}
+  .section-head{margin-bottom:2.2rem;max-width:36em}
+
+  /* ---------- full-bleed photo band ---------- */
+  .band{position:relative;margin-block:clamp(2rem,5vw,3.4rem)}
+  .band img{width:100%;height:clamp(200px,34vw,380px);object-fit:cover}
+  .band figcaption{font-family:var(--display);font-style:italic;color:var(--ink-soft);
+                   font-size:.95rem;padding:.6rem 20px 0;max-width:1080px;margin:0 auto}
+
+  /* ---------- itinerary ---------- */
+  .days{display:flex;flex-direction:column;gap:clamp(2rem,4.4vw,3.2rem)}
+  .day{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.2rem,3vw,2.4rem);align-items:center}
+  .day figure{margin:0}
+  .day figure img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;box-shadow:var(--shadow)}
+  .day figcaption{font-family:var(--display);font-style:italic;font-size:.92rem;color:var(--ink-soft);padding-top:.5rem}
+  .day:nth-child(even) figure{order:2}
+  .day-num{font-family:var(--display);font-size:1.02rem;letter-spacing:.16em;color:var(--terracotta);margin-bottom:.15rem}
+  .day h3{font-size:clamp(1.65rem,4vw,2.15rem);font-weight:400;margin-bottom:.55rem}
+  .day p{margin:0 0 .8rem}
+  .day p:last-child{margin-bottom:0}
+  .kid{border-left:2px solid var(--olive);padding-left:.9rem;color:var(--ink-soft);font-style:italic;font-size:.98rem}
+  .kid b{font-style:normal;color:var(--olive);font-weight:500}
+
+  .note{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--gold);
+        padding:1rem 1.15rem;font-size:.99rem;margin-top:1rem}
+  .note b{color:var(--terracotta);font-weight:500}
+
+  /* ---------- hotels ---------- */
+  .hotels{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:1.6rem}
+  .hotel{background:var(--surface);border:1px solid var(--rule);display:flex;flex-direction:column;overflow:hidden}
+  .hotel-img{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--rule)}
+  .hotel-body{padding:1.05rem 1.15rem 1.25rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+  .hotel h4{font-size:1.4rem;font-weight:600;line-height:1.2}
+  .hotel .meta{font-size:.95rem;color:var(--ink-soft);margin:0}
+  .hotel .rate{font-family:var(--display);font-size:1.28rem;color:var(--terracotta);font-variant-numeric:tabular-nums}
+  .hotel .rate span{font-family:var(--body);font-size:.9rem;color:var(--ink-soft)}
+  .hotel p{margin:0;font-size:.99rem}
+  .hotel .score{display:inline-flex;align-items:baseline;gap:.3rem;font-size:.9rem;color:var(--olive)}
+  .pick{border-color:var(--gold);box-shadow:var(--shadow)}
+  .pick-flag{background:var(--gold);color:#3A2411;font-family:var(--display);font-size:.92rem;
+             letter-spacing:.1em;padding:.3rem .8rem}
+  .city-head{font-family:var(--display);font-size:1.6rem;color:var(--olive);margin:2.6rem 0 1.1rem;
+             display:flex;align-items:center;gap:.9rem}
+  .city-head::after{content:"";flex:1;height:1px;background:var(--rule)}
+  .city-head:first-of-type{margin-top:0}
+
+  /* ---------- food ---------- */
+  .food-group{margin-bottom:2.6rem}
+  .food-group>figure{margin:0 0 1.2rem}
+  .food-group>figure img{width:100%;aspect-ratio:21/9;object-fit:cover}
+  .food-group>figure figcaption{font-family:var(--display);font-style:italic;font-size:.9rem;
+                                color:var(--ink-soft);padding-top:.45rem}
+  .spot{padding:.85rem 0;border-top:1px solid var(--rule);display:grid;
+        grid-template-columns:minmax(0,1fr) auto;gap:.3rem 1rem;align-items:baseline}
+  .spot:last-child{border-bottom:1px solid var(--rule)}
+  .spot .name{font-family:var(--display);font-size:1.32rem;font-weight:600;color:var(--headline)}
+  .spot .why{grid-column:1/-1;font-size:1rem;color:var(--ink);margin:0}
+  .spot .why .addr{color:var(--ink-soft);font-style:italic}
+  .score-pill{font-family:var(--body);font-size:.88rem;color:#fff;background:var(--olive);
+              padding:.1rem .55rem;border-radius:11px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+  /* ---------- tables ---------- */
+  .tablewrap{overflow-x:auto;border:1px solid var(--rule);background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:.98rem}
+  th,td{padding:.7rem .85rem;text-align:left;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--display);font-size:1.05rem;font-weight:600;color:var(--cream);background:var(--olive)}
+  tr:last-child td{border-bottom:0}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .total-line{font-family:var(--display);font-size:1.5rem;color:var(--terracotta);margin-top:1rem;
+              font-variant-numeric:tabular-nums}
+
+  /* ---------- resources ---------- */
+  .res{background:var(--surface);border:1px solid var(--rule);padding:1.4rem 1.5rem}
+  .res h3{font-size:1.35rem;margin-bottom:.5rem}
+  .res ul{margin:0 0 1.3rem;padding-left:1.1rem}
+  .res li{margin-bottom:.35rem}
+  .res ul:last-child{margin-bottom:0}
+  .credits{font-size:.84rem;color:var(--ink-soft);line-height:1.5}
+  .credits p{margin:.4rem 0 0}
+
+  footer{text-align:center;padding:3.2rem 20px 4rem;color:var(--ink-soft);font-style:italic;
+         border-top:1px solid var(--rule)}
+  footer .sign{font-family:var(--display);font-style:normal;font-size:1.7rem;color:var(--terracotta);
+               display:block;margin-bottom:.3rem}
+
+  @media (max-width:720px){
+    body{font-size:18px}
+    .day{grid-template-columns:1fr}
+    .day:nth-child(even) figure{order:0}
+    .spot{grid-template-columns:1fr}
+    .score-pill{justify-self:start}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="hero">
+  <img src="img/hero-colosseum.jpg" alt="The Colosseum in Rome lit by late-afternoon sun">
+  <div class="hero-copy">
+    <h1>Rome &amp; <em>Florence</em></h1>
+    <p class="hero-dates">SEVEN DAYS &middot; APRIL 2027</p>
+    <div class="hero-rule"></div>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="prose lede">
+    <p class="eyebrow">The whole thing, start to finish.</p>
+    <p>Two cities, ninety minutes apart by train. Four nights in Rome, three in Florence,
+      and an April that is warm enough to sit outside at night but early enough that the
+      lines at the Colosseum are still short.</p>
+    <p>Everything below is real: the flights we would book, the hotels with their actual
+      nightly rates, the trattorias, the gelaterias, the wine bars with the cheese boards.
+      It is planned around a kid five and under, which mostly means gardens, gelato,
+      and never more than one big thing a day.</p>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="img/roman-forum.jpg" alt="The ruins of the Roman Forum seen from above" loading="lazy">
+  <figcaption>The Roman Forum, a five-minute walk from the Colosseum.</figcaption>
+</figure>
+
+<section class="wrap" id="itinerary">
+  <div class="section-head">
+    <h2>The week<span class="sub">One headline thing each day, and nothing else scheduled on purpose.</span></h2>
+  </div>
+
+  <div class="days">
+
+    <article class="day day--solo">
+      <div>
+        <p class="day-num">Day 1</p>
+        <h3>Out of LAX, overnight</h3>
+        <p>An evening departure, dinner somewhere over the Atlantic, and we wake up in Europe.
+          Premium economy means the seats recline properly and a small one has room on a lap or a spare seat.</p>
+      </div>
+    </article>
+
+    <article class="day">
+      <figure>
+        <img src="img/espresso-bar.jpg" alt="The marble counter and espresso machine of a coffee bar in Rome" loading="lazy">
+        <figcaption>The first coffee, standing at the bar like everyone else.</figcaption>
+      </figure>
+      <div>
+        <p class="day-num">Day 2</p>
+        <h3>Land in Rome. Do almost nothing.</h3>
+        <p>Check in, drop the bags, and give the day away to the neighbourhood: a walk with no
+          destination, an early dinner, an early night. Jet lag with a toddler is won on the
+          first afternoon or not at all.</p>
+        <p class="kid"><b>With a small one:</b> a piazza, a fountain to throw pebbles in, and pizza by 6pm.</p>
+      </div>
+    </article>
+
+    <article class="day">
+      <figure>
+        <img src="img/colosseum.jpg" alt="The outer arcades of the Colosseum under a blue sky" loading="lazy">
+        <figcaption>The Colosseum's outer arcades, from the Forum side.</figcaption>
+      </figure>
+      <div>
+        <p class="day-num">Day 3</p>
+        <h3>The Colosseum, first thing</h3>
+        <p>We go in between 8:30 and 10am, before the tour groups stack up and while the light
+          is still low and gold across the arches. The ticket also covers the Roman Forum and
+          Palatine Hill next door, so the rest of the morning can go wherever we feel like.</p>
+        <p>Tickets come from the official park site:
+          <a href="https://parcocolosseo.it" target="_blank" rel="noopener">parcocolosseo.it</a>.</p>
+        <p class="note"><b>One thing worth knowing.</b> Villa Borghese is <em>not</em> walking
+          distance from the Colosseum &mdash; it is about three miles, 45 to 60 minutes by bus and
+          metro. So it gets its own half-day instead of being bolted onto this one. The gardens
+          themselves are free; only the Galleria Borghese needs a separate timed reservation.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="img/villa-borghese.jpg" alt="The lake and the Temple of Aesculapius in the Villa Borghese gardens" loading="lazy">
+  <figcaption>Villa Borghese: the lake, the little temple, and rowboats you can rent by the twenty minutes.</figcaption>
+</figure>
+
+<section class="wrap">
+  <div class="days">
+    <article class="day">
+      <figure>
+        <img src="img/vatican-basilica.jpg" alt="St Peter's Basilica seen across St Peter's Square" loading="lazy">
+        <figcaption>St Peter's Basilica across the square.</figcaption>
+      </figure>
+      <div>
+        <p class="day-num">Day 4</p>
+        <h3>The Vatican, then dinner in Trastevere</h3>
+        <p>Museums in the morning. Tickets open exactly 60 days ahead and the skip-the-line
+          option is about five euros on top of the twenty euro base &mdash; the easiest five euros
+          on the whole trip.
+          <a href="https://www.museivaticani.va" target="_blank" rel="noopener">museivaticani.va</a></p>
+        <p>Then we cross the river for the evening. Trastevere is cobblestones, ivy, lanterns
+          strung between buildings, and the best concentration of old-school trattorias in Rome.
+          The list of exactly where to eat is further down.</p>
+        <p class="kid"><b>With a small one:</b> the museums are stroller-friendly; Trastevere at dusk is
+          a toddler's idea of a party.</p>
+      </div>
+    </article>
+
+    <article class="day">
+      <figure>
+        <img src="img/train.jpg" alt="A red Frecciarossa 1000 high-speed train at a platform in Rome" loading="lazy">
+        <figcaption>Roma Termini to Firenze Santa Maria Novella in about an hour and a half.</figcaption>
+      </figure>
+      <div>
+        <p class="day-num">Day 5</p>
+        <h3>Rome to Florence by high-speed train</h3>
+        <p>City centre to city centre in roughly 90 minutes, at 300 km/h, with actual legroom and
+          a table. No airport, no security line, no car seat. Afternoon: check in, then wander
+          Piazza della Repubblica while the light goes long.</p>
+        <p class="kid"><b>With a small one:</b> a very fast red train, and then a carousel in the piazza
+          that runs into the evening.</p>
+      </div>
+    </article>
+
+    <article class="day">
+      <figure>
+        <img src="img/boboli.jpg" alt="The Boboli Gardens amphitheatre and Egyptian obelisk behind Palazzo Pitti" loading="lazy">
+        <figcaption>The amphitheatre and obelisk behind Palazzo Pitti.</figcaption>
+      </figure>
+      <div>
+        <p class="day-num">Day 6, morning</p>
+        <h3>Boboli Gardens</h3>
+        <p>Terraces, fountains, grottoes, hedged paths and a lot of room to let a toddler
+          simply run. Tickets bundle with the Bardini Gardens and are booked through the
+          official Uffizi site &mdash;
+          <a href="https://www.uffizi.it/en/tickets" target="_blank" rel="noopener">uffizi.it</a>.
+          Last admission is an hour before closing, so we go in the morning.</p>
+      </div>
+    </article>
+
+    <article class="day">
+      <figure>
+        <img src="img/duomo.jpg" alt="The marble facade and Brunelleschi's dome of Florence Cathedral" loading="lazy">
+        <figcaption>Santa Maria del Fiore: green, white and pink marble, and Brunelleschi's dome.</figcaption>
+      </figure>
+      <div>
+        <p class="day-num">Day 6, afternoon</p>
+        <h3>The Duomo and the Ponte Vecchio</h3>
+        <p>The cathedral is five minutes' walk from the bridge, so this is one easy loop rather
+          than two errands. We time the Ponte Vecchio for late afternoon, when the jewellers'
+          shutters are still open and the Arno turns the colour of the buildings.</p>
+        <p class="kid"><b>With a small one:</b> you can see the whole dome from the piazza without
+          climbing a single one of its 463 steps.</p>
+      </div>
+    </article>
+
+    <article class="day day--solo">
+      <div>
+        <p class="day-num">Day 7</p>
+        <h3>Home</h3>
+        <p>Out of Florence, or back through Rome, depending on how the flights land when the
+          booking window opens. Either way: one last coffee standing at a bar.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<figure class="band">
+  <img src="img/ponte-vecchio.jpg" alt="The Ponte Vecchio over the Arno in golden evening light" loading="lazy">
+  <figcaption>The Ponte Vecchio, late afternoon.</figcaption>
+</figure>
+<style>
+  .day--solo{grid-template-columns:1fr}
+  .day--solo>div{max-width:34em}
+</style>
+<style>
+  .food-duo{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:1.2rem}
+  .food-duo figure{margin:0}
+  .food-duo img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  .food-duo figcaption{font-family:var(--display);font-style:italic;font-size:.88rem;color:var(--ink-soft);padding-top:.4rem}
+  @media (max-width:560px){.food-duo{grid-template-columns:1fr}}
+</style>
+<style>
+  .photo-duo{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.6rem}
+  .photo-duo figure{margin:0}
+  .photo-duo img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  .photo-duo figcaption{font-family:var(--display);font-style:italic;font-size:.88rem;color:var(--ink-soft);padding-top:.4rem}
+  @media (max-width:560px){.photo-duo{grid-template-columns:1fr}}
+</style>
+
+<figure class="band">
+  <img src="img/florence-sunset.jpg" alt="Florence at sunset seen from Piazzale Michelangelo" loading="lazy">
+  <figcaption>Florence from Piazzale Michelangelo, the evening we arrive.</figcaption>
+</figure>
+
+<section class="wrap" id="hotels">
+  <div class="section-head">
+    <h2>Where we would stay<span class="sub">Four nights in Rome, three in Florence. Totals are for all three of us, booked direct. Scores are the Expedia guest rating.</span></h2>
+  </div>
+  <h3 class="city-head">Rome</h3>
+  <div class="hotels">
+  <article class="hotel">
+    <img class="hotel-img" src="img/rome-ac-clodio-exterior-hotel.jpg" alt="The corner facade of the AC Hotel Clodio Roma at dusk" loading="lazy">
+    <div class="hotel-body">
+      <h4><a href="https://www.marriott.com/en-us/hotels/romca-ac-hotel-clodio-roma/overview/" target="_blank" rel="noopener">AC Hotel by Marriott Clodio Roma</a></h4>
+      <p class="meta">Prati / Clodio, a tram ride from the Vatican</p>
+      <p class="rate">$245<span> a night &middot; $1,148 total</span></p>
+      <p class="score">9.2 out of 10 &mdash; 73 reviews</p>
+      <p>Newest and most predictable of the three: modern rooms, Marriott points, and a quiet residential street north of the Vatican.</p>
+      <p class="meta" style="font-style:italic">AC Hotel Clodio Roma</p>
+    </div>
+  </article>
+  <article class="hotel">
+    <img class="hotel-img" src="img/rome-duca-dalba-exterior-hotel.jpg" alt="The lit entrance of Hotel Duca d'Alba in Monti" loading="lazy">
+    <div class="hotel-body">
+      <h4><a href="https://www.hotelducadalba.com" target="_blank" rel="noopener">Hotel Duca d'Alba</a></h4>
+      <p class="meta">Monti &mdash; ten minutes' walk to the Colosseum</p>
+      <p class="rate">$276<span> a night &middot; $1,555 total</span></p>
+      <p class="score">8.8 out of 10 &mdash; 1,002 reviews</p>
+      <p>The location is the argument: Monti is the neighbourhood you would want to stay in anyway, and the Colosseum is a walk, not a commute.</p>
+      <p class="meta" style="font-style:italic">Hotel Duca d'Alba, Via Leonina</p>
+    </div>
+  </article>
+  <article class="hotel">
+    <img class="hotel-img" src="img/rome-trastevere-room-hotel.jpg" alt="A superior double room at Hotel Trastevere" loading="lazy">
+    <div class="hotel-body">
+      <h4><a href="https://www.hoteltrastevere.it" target="_blank" rel="noopener">Hotel Trastevere</a></h4>
+      <p class="meta">Trastevere, off Piazza San Cosimato</p>
+      <p class="rate">$240<span> a night &middot; $1,112 total</span></p>
+      <p class="score">8.6 out of 10 &mdash; 342 reviews</p>
+      <p>Cheapest of the three and right in the middle of the evening we are already planning. Simple rooms, market square outside the door.</p>
+      <p class="meta" style="font-style:italic">A superior double at Hotel Trastevere</p>
+    </div>
+  </article>
+  </div>
+  <h3 class="city-head">Florence</h3>
+  <div class="hotels">
+  <article class="hotel">
+    <img class="hotel-img" src="img/flr-ac-firenze-exterior-hotel.jpg" alt="The AC Hotel Firenze by Marriott" loading="lazy">
+    <div class="hotel-body">
+      <h4><a href="https://www.marriott.com/en-us/hotels/flrfi-ac-hotel-firenze/overview/" target="_blank" rel="noopener">AC Hotel Firenze by Marriott</a></h4>
+      <p class="meta">Between the station and the Cascine park</p>
+      <p class="rate">$300<span> a night &middot; $1,037 total</span></p>
+      <p class="score">8.6 out of 10 &mdash; 797 reviews</p>
+      <p>Same reliability as the Rome AC, cheapest total of the Florence three because it is only three nights.</p>
+      <p class="meta" style="font-style:italic">AC Hotel Firenze</p>
+    </div>
+  </article>
+  <article class="hotel pick">
+    <img class="hotel-img" src="img/flr-plaza-lucchesi-pool-hotel.jpg" alt="The rooftop terrace and pool at the Plaza Hotel Lucchesi" loading="lazy">
+    <div class="hotel-body">
+      <span class="pick-flag">the one I would pick</span>
+      <h4><a href="https://www.hotelplazalucchesi.it" target="_blank" rel="noopener">Plaza Hotel Lucchesi</a></h4>
+      <p class="meta">On the Arno, five minutes below Santa Croce</p>
+      <p class="rate">$605<span> a night &middot; $2,046 total</span></p>
+      <p class="score">9.4 out of 10 &mdash; 1,003 reviews</p>
+      <p>The only one of the six with real family suites, river-view rooms and a rooftop pool. Highest rated hotel on this whole page, and the reason the second cost line exists.</p>
+      <p class="meta" style="font-style:italic">The roof at the Plaza Lucchesi</p>
+    </div>
+  </article>
+  <article class="hotel">
+    <img class="hotel-img" src="img/flr-alessandra-room-hotel.jpg" alt="A guest room at Hotel Alessandra with a burl-walnut wardrobe and parquet floor" loading="lazy">
+    <div class="hotel-body">
+      <h4><a href="https://www.hotelalessandra.com" target="_blank" rel="noopener">Hotel Alessandra</a></h4>
+      <p class="meta">Borgo Santi Apostoli, a block from the Ponte Vecchio</p>
+      <p class="rate">$273<span> a night &middot; $932 total</span></p>
+      <p class="score">9.2 out of 10 &mdash; 990 reviews</p>
+      <p>A 16th-century palazzo on a quiet lane, sixty seconds from the bridge. Best value-to-location ratio of the six.</p>
+      <p class="meta" style="font-style:italic">A room at the Alessandra</p>
+    </div>
+  </article>
+  </div>
+  <div class="photo-duo">
+    <figure>
+      <img src="img/flr-plaza-lucchesi-room-hotel.jpg" alt="The family suite at the Plaza Hotel Lucchesi, with a raised mezzanine sleeping level" loading="lazy">
+      <figcaption>The Plaza's family suite: a double below, a mezzanine above.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/flr-plaza-lucchesi-exterior-hotel.jpg" alt="A child standing on the bellhop's luggage trolley at the entrance of the Plaza Hotel Lucchesi" loading="lazy">
+      <figcaption>Their own photo of the front door. I did not stage this.</figcaption>
+    </figure>
+  </div>
+  <div class="prose"><p class="note">Book direct with each hotel rather than through a third party &mdash; the rates above are the same, and direct bookings are the ones that get moved, upgraded or cancelled without a fight.</p></div>
+</section>
+
+<figure class="band">
+  <img src="img/trastevere.jpg" alt="The piazza and bell tower of Santa Maria in Trastevere" loading="lazy">
+  <figcaption>Trastevere: cobbles, ivy, and the best concentration of trattorias in Rome.</figcaption>
+</figure>
+
+<section class="wrap" id="food">
+  <div class="section-head">
+    <h2>Where we eat<span class="sub">Pizza, cacio e pepe, gelato made on site, and the wine bars with the good cheese. Every rated place links to its Tripadvisor page.</span></h2>
+  </div>
+
+  <div class="food-group">
+    <div class="food-duo">
+      <figure>
+        <img src="img/fatamorgana.jpg" alt="The shopfront of a Fatamorgana gelateria in Rome" loading="lazy">
+        <figcaption>Fatamorgana. Natural, homemade, and the gluten-free list is real.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/fatamorgana-gelato.jpg" alt="Three small dishes of gelato and two glasses of red wine at Fatamorgana" loading="lazy">
+        <figcaption>Their flavours are the ones you have to ask about.</figcaption>
+      </figure>
+    </div>
+    <h3 class="city-head">Rome &mdash; Monti, by the Colosseum</h3>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187791-d1231075-Reviews-Alle_Carrette-Rome_Lazio.html" target="_blank" rel="noopener">Alle Carrette</a></span>
+      <span class="score-pill">4.0</span>
+      <p class="why">Thin, crisp Roman pizza about ten minutes' walk from the Colosseum. Loud, cheap, fast, fine with kids. <span class="addr">Vicolo delle Carrette 14</span></p>
+    </div>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187791-d3257263-Reviews-Fatamorgana-Rome_Lazio.html" target="_blank" rel="noopener">Fatamorgana Monti</a></span>
+      <span class="score-pill">4.5</span>
+      <p class="why">Inventive flavours, all natural, with a proper gluten-free range. Walkable from the Forum. <span class="addr">Piazza degli Zingari 5</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Gelateria S.M. Maggiore</span>
+      <span class="score-pill">4.7</span>
+      <p class="why">A neighbourhood gelateria that makes everything on site &mdash; the highest-rated stop on this whole list. <span class="addr">Via dello Statuto 18</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Ciuri Ciuri</span>
+      <p class="why">Sicilian: cannoli filled to order, granita, and pistachio gelato that tastes like pistachios. <span class="addr">Via Leonina 18</span></p>
+    </div>
+  </div>
+
+  <div class="food-group">
+    <div class="food-duo">
+      <figure>
+        <img src="img/da-enzo.jpg" alt="Tables on the cobbles outside Da Enzo al 29 in Trastevere" loading="lazy">
+        <figcaption>Da Enzo al 29. The queue starts before the door opens.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/da-enzo-plate.jpg" alt="A bowl of tonnarelli cacio e pepe at Da Enzo al 29" loading="lazy">
+        <figcaption>Cacio e pepe, at the table it is named for.</figcaption>
+      </figure>
+    </div>
+    <h3 class="city-head">Rome &mdash; Trastevere, for the Day 4 dinner</h3>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187791-d2231399-Reviews-Da_Enzo_Al_29-Rome_Lazio.html" target="_blank" rel="noopener">Da Enzo al 29</a></span>
+      <span class="score-pill">4.3</span>
+      <p class="why">The one everybody means when they say &ldquo;a trattoria in Trastevere&rdquo;. Family-run, tiny, no reservations &mdash; go at opening or expect to queue. <span class="addr">Via dei Vascellari 29</span></p>
+    </div>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187791-d2142404-Reviews-La_Tavernaccia-Rome_Lazio.html" target="_blank" rel="noopener">La Tavernaccia da Bruno</a></span>
+      <span class="score-pill">4.4</span>
+      <p class="why">Fifty years in one family, a wood-burning oven, and a wine list well above what the room suggests. Book this one. <span class="addr">Via Giovanni da Castel Bolognese 63</span></p>
+    </div>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187791-d4601411-Reviews-Osteria_Da_Zi_Umberto-Rome_Lazio.html" target="_blank" rel="noopener">Osteria da Zi Umberto</a></span>
+      <span class="score-pill">4.0</span>
+      <p class="why">Tables out on the cobbles and the tonnarelli cacio e pepe people come back for. <span class="addr">Piazza di San Giovanni della Malva 14</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Otello</span>
+      <p class="why">Traditional Roman, quieter than the rest of the street, reservations recommended. <span class="addr">Via della Pelliccia 47/53</span></p>
+    </div>
+  </div>
+
+  <div class="food-group">
+    <div class="food-duo">
+      <figure>
+        <img src="img/il-goccetto.jpg" alt="The Vino e Olio shopfront of Il Goccetto wine bar in Rome" loading="lazy">
+        <figcaption>Il Goccetto, still under its old VINO E OLIO sign.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/cul-de-sac.jpg" alt="The narrow bottle-lined interior of Enoteca Cul de Sac" loading="lazy">
+        <figcaption>Inside Cul de Sac, a few steps off Piazza Navona.</figcaption>
+      </figure>
+    </div>
+    <h3 class="city-head">Rome &mdash; wine, and what comes with it</h3>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187791-d1034609-Reviews-Il_Goccetto-Rome_Lazio.html" target="_blank" rel="noopener">Il Goccetto</a></span>
+      <span class="score-pill">4.3</span>
+      <p class="why">Wood panelling, an 18th-century painted ceiling, hundreds of labels on the wall and a serious cheese and salumi counter. Near Campo de' Fiori. <span class="addr">Via dei Banchi Vecchi 14</span></p>
+    </div>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187791-d1077049-Reviews-Enoteca_Cul_de_Sac-Rome_Lazio.html" target="_blank" rel="noopener">Enoteca Cul de Sac</a></span>
+      <span class="score-pill">4.1</span>
+      <p class="why">Just off Piazza Navona, a narrow railway-carriage of a room, famous for its cheese and pate boards. <span class="addr">Piazza Pasquino 73</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Il Covino</span>
+      <p class="why">Small Prati enoteca near the Vatican that pairs its wines with actual plates of pasta, not just snacks. <span class="addr">Via Fabio Massimo 37</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Del Frate</span>
+      <p class="why">The Prati neighbourhood standby &mdash; long list, calm room, easy after a morning in the museums. <span class="addr">Via degli Scipioni 118</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Fortunato al Pantheon &amp; Enoteca Il Piccolo</span>
+      <p class="why">Two more central classics if we end up walking the Pantheon and Navona end of town.</p>
+    </div>
+  </div>
+
+  <div class="food-group">
+    <div class="food-duo">
+      <figure>
+        <img src="img/repubblica-carousel.jpg" alt="The illuminated carousel in Piazza della Repubblica, Florence, at night" loading="lazy">
+        <figcaption>Piazza della Repubblica after dark, carousel running.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/badiani.jpg" alt="The gelato counter at Badiani in Florence" loading="lazy">
+        <figcaption>Badiani's counter. The pale yellow one is buontalenti.</figcaption>
+      </figure>
+    </div>
+    <h3 class="city-head">Florence &mdash; Piazza della Repubblica, Day 5</h3>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187895-d743666-Reviews-Badiani-Florence_Tuscany.html" target="_blank" rel="noopener">Badiani</a></span>
+      <span class="score-pill">since 1932</span>
+      <p class="why">The buontalenti &mdash; egg-yolk, cream and sugar, invented in Florence &mdash; is the reason to go. <span class="addr">Viale dei Mille 20</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Rinascente rooftop food floor</span>
+      <p class="why">Better gelato than anything directly on the piazza, plus a terrace looking straight at the Duomo. <span class="addr">Piazza della Repubblica 1</span></p>
+    </div>
+  </div>
+
+  <div class="food-group">
+    <div class="food-duo">
+      <figure>
+        <img src="img/le-volpi.jpg" alt="A cheese and crostini board with a glass of wine at Le Volpi e L'Uva" loading="lazy">
+        <figcaption>A board at Le Volpi e L'Uva. This is the Florence part of the pitch.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/gustapizza.jpg" alt="A heart-shaped margherita pizza at Gustapizza in Florence" loading="lazy">
+        <figcaption>Gustapizza makes it heart-shaped if you ask.</figcaption>
+      </figure>
+    </div>
+    <h3 class="city-head">Florence &mdash; Duomo and Oltrarno, Day 6</h3>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187895-d1155597-Reviews-Gustapizza-Florence_Tuscany.html" target="_blank" rel="noopener">Gustapizza</a></span>
+      <span class="score-pill">4.4</span>
+      <p class="why">Proper Neapolitan bases, heart-shaped if you ask, five minutes from the Ponte Vecchio. Get there early. <span class="addr">Via Maggio 46</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Berber&egrave;</span>
+      <p class="why">Slow-risen sourdough pizza cut into eight shareable slices &mdash; the easiest dinner of the trip with a toddler. <span class="addr">Via dei Benci 7</span></p>
+    </div>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187895-d1034478-Reviews-Le_Volpi_E_L_Uva-Florence_Tuscany.html" target="_blank" rel="noopener">Le Volpi e L'Uva</a></span>
+      <span class="score-pill">4.6</span>
+      <p class="why">Tiny, just over the Ponte Vecchio, small-producer wines by the glass and the best cheese and crostini boards in the city. This is the one I would plan the afternoon around.</p>
+    </div>
+    <div class="spot">
+      <span class="name"><a href="https://www.tripadvisor.com/Restaurant_Review-g187895-d2067200-Reviews-Enoteca_Alessi-Florence_Tuscany.html" target="_blank" rel="noopener">Enoteca Alessi</a></span>
+      <span class="score-pill">4.5</span>
+      <p class="why">Fifty years in business, a block from the Duomo, cellar downstairs. <span class="addr">Via dell'Oche 27r</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Casa del Vino</span>
+      <p class="why">Behind the San Lorenzo market: wood-panelled, standing room, crostini and a glass of Chianti at lunchtime. <span class="addr">Via dell'Ariento 16r</span></p>
+    </div>
+    <div class="spot">
+      <span class="name">Il Santino</span>
+      <p class="why">A six-table wine bar in the Oltrarno, the little sibling of Il Santo Bevitore. <span class="addr">Via di Santo Spirito 60r</span></p>
+    </div>
+  </div>
+</section>
+
+<figure class="band">
+  <img src="img/arno-sunset.jpg" alt="Sunset over the Arno river in Florence" loading="lazy">
+  <figcaption>The Arno, about an hour before dinner.</figcaption>
+</figure>
+
+<section class="wrap" id="flights">
+  <div class="section-head">
+    <h2>Getting there<span class="sub">Three seats, booked together, with bags included both ways.</span></h2>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th scope="col">Leg</th><th scope="col">Route</th><th scope="col">What we get</th><th scope="col">All three of us</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Out</td>
+          <td>LAX &rarr; Madrid &rarr; Rome<br><span style="color:var(--ink-soft)">Iberia, premium economy</span></td>
+          <td>Two checked bags each, seats together</td>
+          <td class="num">$2,732</td>
+        </tr>
+        <tr>
+          <td>Back</td>
+          <td>Florence or Rome &rarr; London Heathrow &rarr; LAX</td>
+          <td>Bags added</td>
+          <td class="num">$1,812</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="total-line">$4,544 for all three of us, both directions.</p>
+  <div class="prose">
+    <p class="note">There is a true nonstop on ITA Airways, LAX straight to Rome. We are not taking it:
+      the Iberia routing is premium economy for the long leg, with two bags a person and seats
+      together, and with a small child along that is worth more than the connection is worth avoiding.
+      <b>Exact takeoff and landing times get pinned when the booking window opens</b> &mdash; airlines
+      do not publish April 2027 schedules yet.</p>
+  </div>
+</section>
+
+<section class="wrap" id="cost">
+  <div class="section-head">
+    <h2>What it actually costs<span class="sub">Flights and hotels, for three people, seven days. Food, tickets and the train are on top.</span></h2>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th scope="col">If we book&hellip;</th><th scope="col">Flights</th><th scope="col">Hotels</th><th scope="col">Total</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The sensible version<br><span style="color:var(--ink-soft)">AC Clodio in Rome, Alessandra in Florence</span></td>
+          <td class="num">$4,544</td><td class="num">$2,080</td><td class="num">$6,624</td>
+        </tr>
+        <tr>
+          <td>The one with the rooftop pool<br><span style="color:var(--ink-soft)">AC Clodio in Rome, Plaza Lucchesi in Florence</span></td>
+          <td class="num">$4,544</td><td class="num">$3,194</td><td class="num">$7,738</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p>The difference between those two lines is three nights in a family suite on the Arno with a
+      pool on the roof. Your call &mdash; I would spend it.</p>
+  </div>
+</section>
+
+<section class="wrap" id="resources">
+  <div class="section-head">
+    <h2>Where all this came from<span class="sub">Every number above is checkable. Here is the paperwork.</span></h2>
+  </div>
+  <div class="res">
+    <h3>Official tickets</h3>
+    <ul>
+      <li><a href="https://parcocolosseo.it" target="_blank" rel="noopener">parcocolosseo.it</a> &mdash; Colosseum, Roman Forum and Palatine Hill</li>
+      <li><a href="https://www.museivaticani.va" target="_blank" rel="noopener">museivaticani.va</a> &mdash; Vatican Museums and the Sistine Chapel, released 60 days ahead</li>
+      <li><a href="https://www.uffizi.it/en/tickets" target="_blank" rel="noopener">uffizi.it</a> &mdash; Boboli and Bardini Gardens</li>
+      <li><a href="https://www.galleriaborghese.it/en/" target="_blank" rel="noopener">galleriaborghese.it</a> &mdash; only needed if we go inside the gallery; the gardens are free</li>
+    </ul>
+    <h3>Hotels</h3>
+    <ul>
+      <li>Booked direct where possible &mdash; <a href="https://www.marriott.com/en-us/hotels/romca-ac-hotel-clodio-roma/overview/" target="_blank" rel="noopener">AC Clodio Roma</a>,
+        <a href="https://www.marriott.com/en-us/hotels/flrfi-ac-hotel-firenze/overview/" target="_blank" rel="noopener">AC Firenze</a>,
+        <a href="https://www.hotelducadalba.com" target="_blank" rel="noopener">Duca d'Alba</a>,
+        <a href="https://www.hoteltrastevere.it" target="_blank" rel="noopener">Hotel Trastevere</a>,
+        <a href="https://www.hotelplazalucchesi.it" target="_blank" rel="noopener">Plaza Lucchesi</a>,
+        <a href="https://www.hotelalessandra.com" target="_blank" rel="noopener">Hotel Alessandra</a></li>
+      <li>Rates priced through Expedia for the April window, then checked against each hotel's own site</li>
+    </ul>
+    <h3>Ratings and reviews</h3>
+    <ul>
+      <li>Restaurant and wine bar scores are Tripadvisor, linked next to each place above</li>
+      <li>Hotel scores are the Expedia guest score, with the number of reviews in brackets</li>
+    </ul>
+    <h3>Food guides worth reading before we go</h3>
+    <ul>
+      <li><a href="https://www.eatingeurope.com/blog/da-enzo-al-29-trattoria-restaurant/" target="_blank" rel="noopener">Eating Europe</a> &mdash; Rome and Florence food tours</li>
+      <li><a href="https://www.theinfatuation.com/rome" target="_blank" rel="noopener">The Infatuation, Rome</a></li>
+      <li><a href="https://eatingarounditaly.com/best-pizza-florence-italy/" target="_blank" rel="noopener">Eating Around Italy</a> &mdash; Florence pizza</li>
+    </ul>
+    <h3>Photographs and music</h3>
+    <p class="credits">City and landmark photographs are from Wikimedia Commons, used under their
+      Creative Commons licences. Hotel photographs come from each property's own website or
+      Marriott's media library. Full credits:</p>
+    <p class="credits" id="credit-list">Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Beautiful_Colosseum_in_Rome_.jpg" target="_blank" rel="noopener">Beautiful Colosseum in Rome .jpg</a> &mdash; Yana Drabyshchak, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Exterior_of_the_Colosseum_(2).jpg" target="_blank" rel="noopener">Exterior of the Colosseum (2).jpg</a> &mdash; Joseolgon, CC BY 4.0; <a href="https://commons.wikimedia.org/wiki/File:Roman_Forum_looking_East_panorama.jpg" target="_blank" rel="noopener">Roman Forum looking East panorama.jpg</a> &mdash; Nicholas Hartmann, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg" target="_blank" rel="noopener">Basilica di San Pietro in Vaticano September 2015-1a.jpg</a> &mdash; Alvesgaspar, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Laghetto_and_Tempio_di_Esculapio_in_Villa_Borghese_08.jpg" target="_blank" rel="noopener">Laghetto and Tempio di Esculapio in Villa Borghese 08.jpg</a> &mdash; Krzysztof Golik, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Basilica-Santa-Maria-in-Trastevere-Rome-May-2009.jpg" target="_blank" rel="noopener">Basilica-Santa-Maria-in-Trastevere-Rome-May-2009.jpg</a> &mdash; Acediscovery, CC BY 4.0; <a href="https://commons.wikimedia.org/wiki/File:Rome_Termini_Frecciarossa_1000_stel_49_Milano_C_Le_(35050229673).jpg" target="_blank" rel="noopener">Rome Termini Frecciarossa 1000 stel 49 Milano C Le (35050229673).jpg</a> &mdash; Rob Dammers, CC BY 2.0; <a href="https://commons.wikimedia.org/wiki/File:Vista_de_Florencia_desde_Piazzale_Michelangelo,_Italia,_2022-09-18,_DD_212-214_HDR.jpg" target="_blank" rel="noopener">Vista de Florencia desde Piazzale Michelangelo, Italia, 2022-09-18, DD 212-214 HDR.jpg</a> &mdash; Diego Delso, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Italie,_Florence,_Duomo_ou_Cattedrale_di_Santa_Maria_del_Fiore_avec_son_d%C3%B4me_sur_le_transept_et_son_chevet,_et_le_Battistero_di_San_Giovanni_%C3%A0_droite_(50130306628).jpg" target="_blank" rel="noopener">Italie, Florence, Duomo ou Cattedrale di Santa Maria del Fiore avec son dôme sur le transept et son chevet, et le Battistero di San Giovanni à droite (50130306628).jpg</a> &mdash; Marie Thérèse Hébert &amp; Jean Robert Thibault from Québec, Canada, CC BY-SA 2.0; <a href="https://commons.wikimedia.org/wiki/File:Ponte_Vecchio_After_Sunset.jpg" target="_blank" rel="noopener">Ponte Vecchio After Sunset.jpg</a> &mdash; Eric Kilby, CC BY-SA 2.0; <a href="https://commons.wikimedia.org/wiki/File:Ponte_Vecchio_Sunset,_Florence,_Italy.jpg" target="_blank" rel="noopener">Ponte Vecchio Sunset, Florence, Italy.jpg</a> &mdash; Irene Steeves, CC BY 2.0; <a href="https://commons.wikimedia.org/wiki/File:Firenze_-_Florence_-_Giardino_di_Boboli_-_View_NNW_on_Egyptian_Obelisk_(moved_from_Villa_Medici_here_in_1790),.jpg" target="_blank" rel="noopener">Firenze - Florence - Giardino di Boboli - View NNW on Egyptian Obelisk (moved from Villa Medici here in 1790),.jpg</a> &mdash; Txllxt TxllxT, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Piazza_della_Repubblica_(Florence)_20150811.jpg" target="_blank" rel="noopener">Piazza della Repubblica (Florence) 20150811.jpg</a> &mdash; Suicasmo, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Espresso_machine_and_counter_of_a_coffee_bar_in_Rome.jpg" target="_blank" rel="noopener">Espresso machine and counter of a coffee bar in Rome.jpg</a> &mdash; Wilfredor, CC0.<br>Hotel photographs: Marriott Digital Assets (AC Clodio Roma, AC Firenze) and the hotels' own sites (Duca d'Alba, Hotel Trastevere, Plaza Hotel Lucchesi, Hotel Alessandra).<br>Restaurant photographs: each venue's own website (Da Enzo al 29, Fatamorgana, Enoteca Cul de Sac, Le Volpi e L'Uva, Badiani), plus Rome After Dark (Il Goccetto) and The Joy of Food (Gustapizza).</p>
+    <p class="credits">Music: <em>Gymnop&eacute;die No. 1</em> by Erik Satie, performed on classical guitar by Michael Laucke. Public domain, via <a href="https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac" target="_blank" rel="noopener">Wikimedia Commons</a>.</p>
+  </div>
+</section>
+
+
+<div class="player">
+  <audio id="trackAudio" loop preload="none" src="audio/gymnopedie.mp3"></audio>
+  <button id="trackBtn" class="player-btn" type="button" aria-pressed="false" aria-label="Play background music">
+    <span id="trackNote" class="player-note" aria-hidden="true">&#9834;</span>
+    <span id="trackLabel">Musica</span>
+  </button>
+</div>
+<style>
+  .player{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50}
+  .player-btn{display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;
+    font-family:Georgia,serif;font-family:var(--display,Georgia,serif);
+    font-size:.98rem;letter-spacing:.07em;color:#FCF4E6;
+    background:#5A2A27;background:var(--wine,#5A2A27);
+    border:1px solid #C9A24B;border:1px solid var(--gold,#C9A24B);
+    border-radius:999px;padding:.46rem .9rem;box-shadow:0 6px 18px rgba(0,0,0,.30)}
+  .player-btn:hover{background:#C1502E;background:var(--terracotta,#C1502E)}
+  .player-btn:focus-visible{outline:2px solid #C9A24B;outline-offset:3px}
+  .player-btn[aria-pressed="true"]{background:#6B7A4F;background:var(--olive,#6B7A4F)}
+  .player-note{font-size:1.06em;line-height:1}
+  @media (max-width:420px){.player-btn{font-size:.9rem;padding:.42rem .8rem}}
+</style>
+<script>
+(function(){
+  var a=document.getElementById('trackAudio'), b=document.getElementById('trackBtn'),
+      n=document.getElementById('trackNote'), l=document.getElementById('trackLabel');
+  if(!a||!b) return;
+  var TARGET=0.38, fade;
+  function rampUp(){
+    clearInterval(fade);
+    fade=setInterval(function(){
+      a.volume=Math.min(TARGET, a.volume+0.04);
+      if(a.volume>=TARGET) clearInterval(fade);
+    },70);
+  }
+  function showPlaying(){
+    b.setAttribute('aria-pressed','true');
+    b.setAttribute('aria-label','Pause background music');
+    n.innerHTML='&#10074;&#10074;'; l.textContent='Pausa';
+  }
+  function showPaused(){
+    b.setAttribute('aria-pressed','false');
+    b.setAttribute('aria-label','Play background music');
+    n.innerHTML='&#9834;'; l.textContent='Musica';
+  }
+  b.addEventListener('click',function(){
+    if(a.paused){
+      try{a.volume=0;}catch(e){}
+      var p=a.play();
+      if(p && p.then){
+        p.then(function(){showPlaying();rampUp();})
+         .catch(function(){l.textContent='Tap again';});
+      } else { showPlaying(); rampUp(); }
+    } else {
+      clearInterval(fade); a.pause(); showPaused();
+    }
+  });
+  a.addEventListener('pause',showPaused);
+  a.addEventListener('play',showPlaying);
+  a.addEventListener('ended',function(){ a.currentTime=0; a.play(); });
+})();
+</script>
+
+<footer>
+  <span class="sign">Andiamo.</span>
+  April 2027, if you say yes.
+</footer>
+
+</body>
+</html>
