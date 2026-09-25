@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Rome &amp; Florence, on the map</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=EB+Garamond:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root{
+    --terracotta:#C1502E; --olive:#6B7A4F; --cream:#FAF3E7; --gold:#C9A24B; --wine:#5A2A27;
+    --plum:#7A4E7E; --ink:#372C24; --ink-soft:#6E5F52; --page:#FAF3E7; --surface:#FFFDF8;
+    --rule:#E3D5BC;
+    --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --body:"EB Garamond",Georgia,"Times New Roman",serif;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --page:#1E1512; --surface:#291D18; --ink:#F1E3D1; --ink-soft:#C3AE98; --rule:#463229;
+      --terracotta:#D9703F; --gold:#D8B569; --plum:#B083B4; color-scheme:dark;
+    }
+  }
+  *{box-sizing:border-box}
+  html{height:100%;background:#FAF3E7;background:var(--page,#FAF3E7)}
+  body{margin:0;height:100%;display:flex;flex-direction:column;
+       background:#FAF3E7;background:var(--page,#FAF3E7);
+       color:#372C24;color:var(--ink,#372C24);
+       font-family:Georgia,serif;font-family:var(--body);font-size:16px}
+  header{flex:0 0 auto;padding:.7rem 16px calc(.7rem);border-bottom:1px solid var(--rule);
+         background:var(--surface);display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center}
+  header h1{font-family:var(--display);font-weight:600;font-size:1.45rem;margin:0;color:var(--wine);
+            line-height:1.1}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header h1{color:#F3D9B8}}
+  .back{font-size:.95rem;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--gold)}
+  .back:hover{color:var(--terracotta)}
+  .spacer{flex:1 1 auto}
+  .cities{display:flex;gap:.4rem}
+  .cities button, .reset{font-family:var(--display);font-size:1rem;letter-spacing:.04em;cursor:pointer;
+    background:transparent;color:var(--ink);border:1px solid var(--rule);border-radius:999px;
+    padding:.3rem .85rem}
+  .cities button[aria-pressed="true"]{background:var(--olive);color:#FCF4E6;border-color:var(--olive)}
+  #map{flex:1 1 auto;min-height:0;width:100%;background:var(--rule)}
+  .legend{flex:0 0 auto;display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;align-items:center;
+          padding:.65rem 16px calc(.65rem + env(safe-area-inset-bottom,0px));
+          border-top:1px solid var(--rule);background:var(--surface);font-size:.92rem}
+  .key{display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;user-select:none}
+  .key input{margin:0}
+  .dot{width:13px;height:13px;border-radius:50%;border:2px solid #FFFDF8;
+       box-shadow:0 0 0 1px rgba(0,0,0,.25);display:inline-block}
+  .hint{color:var(--ink-soft);font-style:italic;font-size:.88rem}
+  .pin{border-radius:50%;border:2px solid #FFFDF8;box-shadow:0 1px 4px rgba(0,0,0,.45)}
+  .pin.hotel{width:19px;height:19px;border-width:3px}
+  .leaflet-popup-content-wrapper{border-radius:4px;background:var(--surface);color:var(--ink)}
+  .leaflet-popup-tip{background:var(--surface)}
+  .leaflet-popup-content{margin:.7rem .85rem;font-family:var(--body);font-size:.95rem;line-height:1.45}
+  .pop-n{font-family:var(--display);font-size:1.2rem;font-weight:600;color:var(--wine);display:block}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pop-n{color:#F3D9B8}}
+  .pop-a{color:var(--ink-soft);font-style:italic}
+  .pop-d{display:block;margin-top:.25rem}
+  .pop-w{display:block;margin-top:.4rem;padding-top:.4rem;border-top:1px solid var(--rule);
+         color:var(--olive);font-weight:500}
+  .walkbtn{margin-top:.5rem;font-family:var(--display);font-size:.95rem;cursor:pointer;
+    background:var(--wine);color:#FCF4E6;border:1px solid var(--gold);border-radius:999px;padding:.25rem .7rem}
+  .panel{position:absolute;right:10px;top:10px;z-index:1000;max-width:230px;background:var(--surface);
+         border:1px solid var(--rule);border-radius:4px;padding:.6rem .75rem;font-size:.9rem;
+         box-shadow:0 4px 14px rgba(0,0,0,.2)}
+  .panel b{font-family:var(--display);font-size:1.05rem}
+  .panel .close{float:right;cursor:pointer;color:var(--ink-soft);border:0;background:none;font-size:1rem}
+  @media (max-width:560px){
+    header h1{font-size:1.2rem;width:100%}
+    .legend{font-size:.85rem;gap:.4rem .8rem}
+    .panel{max-width:180px;font-size:.84rem}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Rome &amp; Florence, on the map</h1>
+  <a class="back" href="../">&larr; back to the itinerary</a>
+  <span class="spacer"></span>
+  <div class="cities">
+    <button type="button" data-city="Rome" aria-pressed="true">Rome</button>
+    <button type="button" data-city="Florence" aria-pressed="false">Florence</button>
+  </div>
+</header>
+<div id="map"></div>
+<div class="legend">
+  <label class="key"><input type="checkbox" data-cat="hotel" checked><span class="dot" style="background:#5A2A27"></span>Hotels</label>
+  <label class="key"><input type="checkbox" data-cat="sight" checked><span class="dot" style="background:#6B7A4F"></span>Sights &amp; gardens</label>
+  <label class="key"><input type="checkbox" data-cat="eat" checked><span class="dot" style="background:#C1502E"></span>Restaurants</label>
+  <label class="key"><input type="checkbox" data-cat="wine" checked><span class="dot" style="background:#7A4E7E"></span>Wine bars</label>
+  <label class="key"><input type="checkbox" data-cat="gelato" checked><span class="dot" style="background:#C9A24B"></span>Gelato</label>
+  <span class="hint">Tap a hotel to see what is within a 5, 10 and 15 minute walk.</span>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+        integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+const PLACES = [{"n": "AC Hotel by Marriott Clodio Roma", "c": "hotel", "city": "Rome", "lat": 41.919843, "lng": 12.456474, "a": "Via di Santa Lucia 10", "d": "$245/night · $1,148 total · 9.2"}, {"n": "Hotel Duca d'Alba", "c": "hotel", "city": "Rome", "lat": 41.894954, "lng": 12.492273, "a": "Via Leonina 14, Monti", "d": "$276/night · $1,555 total · 8.8"}, {"n": "Hotel Trastevere", "c": "hotel", "city": "Rome", "lat": 41.887863, "lng": 12.469806, "a": "Via Luciano Manara 24a", "d": "$240/night · $1,112 total · 8.6"}, {"n": "AC Hotel Firenze", "c": "hotel", "city": "Florence", "lat": 43.779511, "lng": 11.237295, "a": "Via Luciano Bausi 5", "d": "$300/night · $1,037 total · 8.6"}, {"n": "Plaza Hotel Lucchesi", "c": "hotel", "city": "Florence", "lat": 43.766612, "lng": 11.263318, "a": "Lungarno della Zecca Vecchia 38", "d": "$605/night · $2,046 total · 9.4 · rooftop pool"}, {"n": "Hotel Alessandra", "c": "hotel", "city": "Florence", "lat": 43.76927, "lng": 11.252559, "a": "Borgo Santi Apostoli 17", "d": "$273/night · $932 total · 9.2"}, {"n": "The Colosseum", "c": "sight", "city": "Rome", "lat": 41.890942, "lng": 12.491903, "a": "", "d": "Day 3, arrive 8:30–10am"}, {"n": "Roman Forum", "c": "sight", "city": "Rome", "lat": 41.891641, "lng": 12.48673, "a": "", "d": "Included with the Colosseum ticket"}, {"n": "Vatican Museums", "c": "sight", "city": "Rome", "lat": 41.904961, "lng": 12.454662, "a": "", "d": "Day 4, book 60 days ahead"}, {"n": "St Peter's Basilica", "c": "sight", "city": "Rome", "lat": 41.902157, "lng": 12.45371, "a": "", "d": ""}, {"n": "Villa Borghese gardens", "c": "sight", "city": "Rome", "lat": 41.914411, "lng": 12.484844, "a": "", "d": "Its own half-day. Gardens free"}, {"n": "Piazza Navona", "c": "sight", "city": "Rome", "lat": 41.898928, "lng": 12.473118, "a": "", "d": ""}, {"n": "The Pantheon", "c": "sight", "city": "Rome", "lat": 41.898616, "lng": 12.476833, "a": "", "d": ""}, {"n": "Piazza di Santa Maria in Trastevere", "c": "sight", "city": "Rome", "lat": 41.889564, "lng": 12.470508, "a": "", "d": "Day 4 dinner is around here"}, {"n": "Roma Termini station", "c": "sight", "city": "Rome", "lat": 41.901195, "lng": 12.501671, "a": "", "d": "Train to Florence, Day 5"}, {"n": "The Duomo", "c": "sight", "city": "Florence", "lat": 43.773102, "lng": 11.256574, "a": "", "d": "Day 6 afternoon"}, {"n": "Ponte Vecchio", "c": "sight", "city": "Florence", "lat": 43.768025, "lng": 11.253158, "a": "", "d": "5 minutes' walk from the Duomo"}, {"n": "Boboli Gardens", "c": "sight", "city": "Florence", "lat": 43.763278, "lng": 11.249899, "a": "", "d": "Day 6 morning. Book via uffizi.it"}, {"n": "Piazza della Repubblica", "c": "sight", "city": "Florence", "lat": 43.771519, "lng": 11.254011, "a": "", "d": "Day 5 stroll · carousel"}, {"n": "Piazzale Michelangelo", "c": "sight", "city": "Florence", "lat": 43.762828, "lng": 11.264993, "a": "", "d": "The view over the whole city"}, {"n": "Firenze S. Maria Novella station", "c": "sight", "city": "Florence", "lat": 43.777572, "lng": 11.247418, "a": "", "d": "Arrive here from Rome"}, {"n": "Alle Carrette", "c": "eat", "city": "Rome", "lat": 41.893642, "lng": 12.488481, "a": "Vicolo delle Carrette 14", "d": "Roman pizza · 4.0"}, {"n": "Da Enzo al 29", "c": "eat", "city": "Rome", "lat": 41.888086, "lng": 12.477807, "a": "Via dei Vascellari 29", "d": "Trattoria · 4.3 · no reservations"}, {"n": "La Tavernaccia da Bruno", "c": "eat", "city": "Rome", "lat": 41.874097, "lng": 12.468631, "a": "Via G. da Castel Bolognese 63", "d": "Trattoria · 4.4 · book ahead"}, {"n": "Osteria da Zi Umberto", "c": "eat", "city": "Rome", "lat": 41.892035, "lng": 12.468843, "a": "Piazza S. Giovanni della Malva 14", "d": "Cacio e pepe · 4.0"}, {"n": "Otello", "c": "eat", "city": "Rome", "lat": 41.890401, "lng": 12.469114, "a": "Via della Pelliccia 47", "d": "Roman trattoria"}, {"n": "Gustapizza", "c": "eat", "city": "Florence", "lat": 43.765924, "lng": 11.248412, "a": "Via Maggio 46", "d": "Neapolitan · 4.4 · heart-shaped if you ask"}, {"n": "Berbere", "c": "eat", "city": "Florence", "lat": 43.767784, "lng": 11.259365, "a": "Via dei Benci 7", "d": "Sourdough, eight shareable slices"}, {"n": "Il Goccetto", "c": "wine", "city": "Rome", "lat": 41.897796, "lng": 12.467344, "a": "Via dei Banchi Vecchi 14", "d": "Wine bar · 4.3 · cheese and salumi"}, {"n": "Enoteca Cul de Sac", "c": "wine", "city": "Rome", "lat": 41.89769, "lng": 12.472107, "a": "Piazza Pasquino 73", "d": "Wine bar · 4.1 · off Piazza Navona"}, {"n": "Il Covino", "c": "wine", "city": "Rome", "lat": 41.908826, "lng": 12.462211, "a": "Via Fabio Massimo 37", "d": "Enoteca near the Vatican"}, {"n": "Del Frate", "c": "wine", "city": "Rome", "lat": 41.90888, "lng": 12.460047, "a": "Via degli Scipioni 118", "d": "Prati wine bar"}, {"n": "Le Volpi e L'Uva", "c": "wine", "city": "Florence", "lat": 43.766993, "lng": 11.252782, "a": "Piazza dei Rossi 1", "d": "Wine bar · 4.6 · the cheese boards"}, {"n": "Enoteca Alessi", "c": "wine", "city": "Florence", "lat": 43.772198, "lng": 11.255857, "a": "Via delle Oche 27r", "d": "Wine bar · 4.5 · 50+ years"}, {"n": "Casa del Vino", "c": "wine", "city": "Florence", "lat": 43.776453, "lng": 11.252792, "a": "Via dell'Ariento 16r", "d": "Behind the San Lorenzo market"}, {"n": "Il Santino", "c": "wine", "city": "Florence", "lat": 43.768984, "lng": 11.246989, "a": "Via di Santo Spirito 60r", "d": "Six tables, Oltrarno"}, {"n": "Fatamorgana Monti", "c": "gelato", "city": "Rome", "lat": 41.895619, "lng": 12.493245, "a": "Piazza degli Zingari 5", "d": "Gelato · 4.5 · gluten-free range"}, {"n": "Gelateria S.M. Maggiore", "c": "gelato", "city": "Rome", "lat": 41.8948, "lng": 12.50179, "a": "Via dello Statuto 18", "d": "Gelato · 4.7 · made on site"}, {"n": "Ciuri Ciuri", "c": "gelato", "city": "Rome", "lat": 41.894814, "lng": 12.491981, "a": "Via Leonina 18", "d": "Sicilian gelato and cannoli"}, {"n": "Badiani", "c": "gelato", "city": "Florence", "lat": 43.781159, "lng": 11.27871, "a": "Viale dei Mille 20", "d": "Gelato since 1932 · buontalenti"}, {"n": "Rinascente rooftop", "c": "gelato", "city": "Florence", "lat": 43.7713, "lng": 11.254586, "a": "Piazza della Repubblica 1", "d": "Gelato with a Duomo view"}];
+</script>
+<script>
+(function(){
+  var COL={hotel:"#5A2A27",sight:"#6B7A4F",eat:"#C1502E",wine:"#7A4E7E",gelato:"#C9A24B"};
+  var LABEL={hotel:"Hotel",sight:"Sight",eat:"Restaurant",wine:"Wine bar",gelato:"Gelato"};
+  var WALK=80; // metres per minute, an unhurried city pace
+  var map=L.map("map",{zoomControl:true,scrollWheelZoom:true}).setView([41.8955,12.4823],14);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{
+    maxZoom:19, subdomains:"abcd",
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  }).addTo(map);
+
+  function metres(a,b){
+    var R=6371000, t=Math.PI/180;
+    var dLa=(b.lat-a.lat)*t, dLo=(b.lng-a.lng)*t;
+    var s=Math.sin(dLa/2)*Math.sin(dLa/2)+Math.cos(a.lat*t)*Math.cos(b.lat*t)*Math.sin(dLo/2)*Math.sin(dLo/2);
+    return 2*R*Math.asin(Math.sqrt(s));
+  }
+  var markers=[], circles=L.layerGroup().addTo(map), current=null;
+
+  function popupHTML(p, from){
+    var h='<span class="pop-n">'+p.n+'</span><span class="pop-a">'+LABEL[p.c]+(p.a?" &middot; "+p.a:"")+'</span>';
+    if(p.d) h+='<span class="pop-d">'+p.d+'</span>';
+    if(from && from!==p){
+      var m=metres(from,p);
+      h+='<span class="pop-w">'+Math.round(m)+' m from '+from.n+' &mdash; about '+Math.max(1,Math.round(m/WALK))+' min on foot</span>';
+    }
+    if(p.c==="hotel") h+='<button class="walkbtn" type="button" data-walk="'+p.n+'">walking circles from here</button>';
+    return h;
+  }
+  function redrawPopups(){
+    markers.forEach(function(m){ m.setPopupContent(popupHTML(m.place, current)); });
+  }
+  function showPanel(p){
+    hidePanel();
+    var near={5:0,10:0,15:0};
+    PLACES.forEach(function(q){
+      if(q===p || q.c==="hotel" || q.city!==p.city) return;
+      var mins=metres(p,q)/WALK;
+      if(mins<=5) near[5]++; if(mins<=10) near[10]++; if(mins<=15) near[15]++;
+    });
+    var d=L.DomUtil.create("div","panel"); d.id="walkpanel";
+    d.innerHTML='<button class="close" type="button" aria-label="Close">&times;</button>'+
+      '<b>'+p.n+'</b><br>Within a walk of:<br>'+
+      '&bull; 5 min &mdash; '+near[5]+' places<br>'+
+      '&bull; 10 min &mdash; '+near[10]+' places<br>'+
+      '&bull; 15 min &mdash; '+near[15]+' places<br>'+
+      '<span class="hint">Circles are straight-line; streets add a little.</span>';
+    document.getElementById("map").appendChild(d);
+    L.DomEvent.disableClickPropagation(d);
+    d.querySelector(".close").addEventListener("click",function(){hidePanel();circles.clearLayers();current=null;redrawPopups();});
+  }
+  function hidePanel(){ var e=document.getElementById("walkpanel"); if(e) e.remove(); }
+  function drawWalk(p){
+    circles.clearLayers(); current=p;
+    [[5,.30],[10,.20],[15,.12]].forEach(function(pair){
+      L.circle([p.lat,p.lng],{radius:pair[0]*WALK,color:"#6B7A4F",weight:1,
+        fillColor:"#6B7A4F",fillOpacity:pair[1],interactive:false}).addTo(circles);
+    });
+    showPanel(p); redrawPopups();
+    map.fitBounds(L.latLng(p.lat,p.lng).toBounds(15*WALK*2.4),{padding:[20,20]});
+  }
+  PLACES.forEach(function(p){
+    var size=p.c==="hotel"?19:13;
+    var icon=L.divIcon({className:"",iconSize:[size,size],iconAnchor:[size/2,size/2],
+      html:'<div class="pin '+(p.c==="hotel"?"hotel":"")+'" style="width:'+size+'px;height:'+size+'px;background:'+COL[p.c]+'"></div>'});
+    var m=L.marker([p.lat,p.lng],{icon:icon,title:p.n,riseOnHover:true}).addTo(map);
+    m.place=p; m.bindPopup(popupHTML(p,null),{maxWidth:260});
+    m.on("popupopen",function(e){
+      var b=e.popup.getElement().querySelector("[data-walk]");
+      if(b) b.addEventListener("click",function(){ drawWalk(p); });
+    });
+    markers.push(m);
+  });
+  function bounds(city){
+    var pts=markers.filter(function(m){return m.place.city===city;}).map(function(m){return m.getLatLng();});
+    return L.latLngBounds(pts);
+  }
+  function go(city){
+    circles.clearLayers(); hidePanel(); current=null; redrawPopups();
+    map.flyToBounds(bounds(city),{padding:[30,30],duration:.8});
+    document.querySelectorAll(".cities button").forEach(function(b){
+      b.setAttribute("aria-pressed", String(b.dataset.city===city));
+    });
+  }
+  document.querySelectorAll(".cities button").forEach(function(b){
+    b.addEventListener("click",function(){ go(b.dataset.city); });
+  });
+  document.querySelectorAll(".legend input").forEach(function(cb){
+    cb.addEventListener("change",function(){
+      markers.forEach(function(m){
+        if(m.place.c!==cb.dataset.cat) return;
+        if(cb.checked) m.addTo(map); else map.removeLayer(m);
+      });
+    });
+  });
+  map.fitBounds(bounds("Rome"),{padding:[30,30]});
+})();
+</script>
+</body>
+</html>
